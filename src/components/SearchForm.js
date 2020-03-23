@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+export const getAllChars = async () => {
+    const data = await fetch('https://rickandmortyapi.com/api/character/')
+    const json = await data.json()
 
-export default function SearchForm() {
- 
-  return (
-    <section className="search-form">
-     // Add a search form here
-    </section>
-  );
+    return json.results
+}
+
+
+export const getChar = async (id) => {
+    const data = await fetch('https://rickandmortyapi.com/api/character/' + id)
+    const json = await data.json()
+
+    return json
 }
